@@ -4,14 +4,11 @@ import PoolList from "../components/PoolList";
 
 export default function Page() {
   return (
-    <ConnectWallet>
-      <main className="max-w-3xl mx-auto">
-        <h1 className="text-2xl font-bold text-center my-6">
-          Saros DLMM Portfolio
-        </h1>
+    <main className="w-full min-h-screen bg-background dark grid-neon scanlines">
+      <ConnectWallet>
         <Portfolio />
         <PoolList />
-      </main>
-    </ConnectWallet>
+      </ConnectWallet>
+    </main>
   );
 }

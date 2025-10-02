@@ -1,7 +1,7 @@
 import { sarosDLMM } from "../service/sarosService"
 
 
-async function explorePools() {
+export async function explorePools() {
   try {
     const poolAddresses = await sarosDLMM.fetchPoolAddresses();
     console.log(`Dex name: ${sarosDLMM.getDexName()}`);
@@ -15,6 +15,7 @@ async function explorePools() {
     if (poolAddresses.length > 0) {
       const firstPoolAddress = "DFH7VBnDoJ6u8kk1zeVZ8EXsEzgx6YNMUDfcjTQ3dEFM";
       const poolMetadata = await sarosDLMM.fetchPoolMetadata(firstPoolAddress);
+      console.log(poolMetadata);
       console.log(`\nPool Details for ${firstPoolAddress}:`);
       console.log(`Base Token: ${poolMetadata.baseMint}`);
       console.log(`Quote Token: ${poolMetadata.quoteMint}`);

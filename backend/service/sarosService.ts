@@ -139,18 +139,13 @@ export async function fetchPools(limit = 20): Promise<FetchPoolsResult> {
 
     const metadataPromises = slice.map(async (addr: PublicKey) => {
       try {
-        // fetchPoolMetadata chấp nhận base58 string
         const metadata: any = await sarosDLMM.fetchPoolMetadata(
           addr.toBase58()
         );
 
-        // đảm bảo có pair (chuỗi)
         const out: PoolMetadata = {
           ...(metadata || {}),
           pair: addr.toBase58(),
-          // nếu SDK không trả totalLiquidityUsd/currentPrice, ta có thể leave undefined hoặc để mock nhỏ
-          totalLiquidityUsd: metadata?.totalLiquidityUsd ?? undefined,
-          currentPrice: metadata?.currentPrice ?? undefined,
         };
 
         return out;
@@ -203,6 +198,7 @@ export async function fetchUserPositions(payer: PublicKey) {
           }));
 
           allUserPositions.push(...enrichedPositions);
+          return allUserPositions;
         }
       } catch (innerErr) {
         console.warn(
