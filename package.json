@@ -8,16 +8,28 @@
     "start": "next start"
   },
   "dependencies": {
+    "@saros-finance/dlmm-sdk": "^1.4.0",
+    "@saros-finance/sdk": "^2.4.0",
+    "@solana/wallet-adapter-react": "^0.15.39",
+    "@solana/wallet-adapter-react-ui": "^0.9.39",
+    "@solana/wallet-adapter-wallets": "^0.19.37",
+    "@solana/web3.js": "^1.98.4",
+    "autoprefix": "^1.0.1",
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.15.1",
+    "next": "15.5.4",
+    "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "swr": "^2.3.6"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5"
   }
 }
