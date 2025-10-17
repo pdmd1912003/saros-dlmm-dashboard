@@ -4,76 +4,74 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Web3 Neon Theme - Light Mode (Cyberpunk inspired) */
-  --background: oklch(0.98 0.01 264);
-  --foreground: oklch(0.15 0.02 264);
-  --card: oklch(0.95 0.02 264);
-  --card-foreground: oklch(0.15 0.02 264);
-  --popover: oklch(0.95 0.02 264);
-  --popover-foreground: oklch(0.15 0.02 264);
-  --primary: oklch(0.65 0.25 264); /* Electric Blue */
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.7 0.28 320); /* Neon Magenta */
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.88 0.02 264);
-  --muted-foreground: oklch(0.5 0.02 264);
-  --accent: oklch(0.75 0.3 180); /* Neon Cyan */
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.65 0.28 15); /* Neon Red */
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.85 0.03 264);
-  --input: oklch(0.85 0.03 264);
-  --ring: oklch(0.65 0.25 264);
-  --chart-1: oklch(0.65 0.25 264); /* Electric Blue */
-  --chart-2: oklch(0.7 0.28 320); /* Neon Magenta */
-  --chart-3: oklch(0.75 0.3 180); /* Neon Cyan */
-  --chart-4: oklch(0.7 0.25 140); /* Neon Green */
-  --chart-5: oklch(0.68 0.26 60); /* Neon Yellow */
-  --radius: 0.5rem;
-  --sidebar: oklch(0.95 0.02 264);
-  --sidebar-foreground: oklch(0.15 0.02 264);
-  --sidebar-primary: oklch(0.65 0.25 264);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.88 0.02 264);
-  --sidebar-accent-foreground: oklch(0.15 0.02 264);
-  --sidebar-border: oklch(0.85 0.03 264);
-  --sidebar-ring: oklch(0.65 0.25 264);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  /* Web3 Neon Theme - Dark Mode (Blue & Black Only) */
-  --background: oklch(0.03 0.01 264); /* Pure black with subtle blue tint */
-  --foreground: oklch(0.95 0.05 264); /* Bright blue-white */
-  --card: oklch(0.06 0.02 264); /* Very dark card with blue tint */
-  --card-foreground: oklch(0.95 0.05 264);
-  --popover: oklch(0.04 0.02 264);
-  --popover-foreground: oklch(0.95 0.05 264);
-  --primary: oklch(0.7 0.3 264); /* Bright Electric Blue */
-  --primary-foreground: oklch(0.03 0.01 264);
-  --secondary: oklch(0.6 0.25 264); /* Darker Blue */
-  --secondary-foreground: oklch(0.95 0.05 264);
-  --muted: oklch(0.1 0.02 264);
-  --muted-foreground: oklch(0.5 0.1 264);
-  --accent: oklch(0.8 0.35 264); /* Bright Blue Accent */
-  --accent-foreground: oklch(0.03 0.01 264);
-  --destructive: oklch(0.7 0.3 15); /* Keep red for errors */
+  --background: oklch(0.08 0.015 264); /* Deep dark blue-black */
+  --foreground: oklch(0.95 0.01 264); /* Soft white with blue tint */
+  --card: oklch(0.12 0.02 264); /* Dark card with subtle blue */
+  --card-foreground: oklch(0.95 0.01 264);
+  --popover: oklch(0.1 0.02 264);
+  --popover-foreground: oklch(0.95 0.01 264);
+  --primary: oklch(0.65 0.18 264); /* Soft blue */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.62 0.16 300); /* Soft purple */
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.2 0.02 264);
+  --muted-foreground: oklch(0.55 0.05 264);
+  --accent: oklch(0.68 0.2 180); /* Soft cyan */
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.22 15); /* Muted red */
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.15 0.08 264);
-  --input: oklch(0.08 0.06 264);
-  --ring: oklch(0.7 0.3 264);
-  --chart-1: oklch(0.7 0.3 264); /* Electric Blue */
-  --chart-2: oklch(0.6 0.25 264); /* Darker Blue */
-  --chart-3: oklch(0.8 0.35 264); /* Bright Blue */
-  --chart-4: oklch(0.5 0.2 264); /* Muted Blue */
-  --chart-5: oklch(0.75 0.3 264); /* Medium Blue */
-  --sidebar: oklch(0.04 0.02 264);
-  --sidebar-foreground: oklch(0.95 0.05 264);
-  --sidebar-primary: oklch(0.7 0.3 264);
-  --sidebar-primary-foreground: oklch(0.03 0.01 264);
-  --sidebar-accent: oklch(0.1 0.02 264);
-  --sidebar-accent-foreground: oklch(0.95 0.05 264);
-  --sidebar-border: oklch(0.15 0.08 264);
-  --sidebar-ring: oklch(0.7 0.3 264);
+  --border: oklch(0.2 0.04 264);
+  --input: oklch(0.15 0.03 264);
+  --ring: oklch(0.65 0.18 264);
+  --chart-1: oklch(0.68 0.2 180); /* Cyan for left bars */
+  --chart-2: oklch(0.65 0.18 264); /* Blue for left bars */
+  --chart-3: oklch(0.62 0.16 300); /* Purple for right bars */
+  --chart-4: oklch(0.65 0.18 320); /* Pink for right bars */
+  --chart-5: oklch(0.6 0.15 280); /* Mid purple */
+  --sidebar: oklch(0.1 0.02 264);
+  --sidebar-foreground: oklch(0.95 0.01 264);
+  --sidebar-primary: oklch(0.65 0.18 264);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.2 0.02 264);
+  --sidebar-accent-foreground: oklch(0.95 0.01 264);
+  --sidebar-border: oklch(0.2 0.04 264);
+  --sidebar-ring: oklch(0.65 0.18 264);
 }
 
 @theme inline {
@@ -126,112 +124,53 @@
   }
 }
 
-/* Web3 Neon Glow Effects - Blue & Black Theme */
 @layer utilities {
-  /* Primary Neon Glows */
-  .neon-glow-blue {
-    box-shadow: 0 0 10px oklch(0.7 0.3 264 / 0.5), 0 0 20px oklch(0.7 0.3 264 / 0.3), 0 0 30px oklch(0.7 0.3 264 / 0.2);
+  /* Subtle Professional Glows */
+  .glow-cyan {
+    box-shadow: 0 0 8px oklch(0.68 0.2 180 / 0.3), 0 0 16px oklch(0.68 0.2 180 / 0.15);
   }
 
-  .neon-glow-cyan {
-    box-shadow: 0 0 10px oklch(0.8 0.35 264 / 0.5), 0 0 20px oklch(0.8 0.35 264 / 0.3), 0 0 30px
-      oklch(0.8 0.35 264 / 0.2);
+  .glow-blue {
+    box-shadow: 0 0 8px oklch(0.65 0.18 264 / 0.3), 0 0 16px oklch(0.65 0.18 264 / 0.15);
   }
 
-  .neon-glow-magenta {
-    box-shadow: 0 0 10px oklch(0.6 0.25 264 / 0.5), 0 0 20px oklch(0.6 0.25 264 / 0.3), 0 0 30px
-      oklch(0.6 0.25 264 / 0.2);
+  .glow-purple {
+    box-shadow: 0 0 8px oklch(0.62 0.16 300 / 0.3), 0 0 16px oklch(0.62 0.16 300 / 0.15);
   }
 
-  .neon-glow-green {
-    box-shadow: 0 0 10px oklch(0.75 0.3 264 / 0.5), 0 0 20px oklch(0.75 0.3 264 / 0.3), 0 0 30px
-      oklch(0.75 0.3 264 / 0.2);
-  }
-
-  /* Strong Neon Glows */
-  .neon-glow-blue-strong {
-    box-shadow: 0 0 15px oklch(0.7 0.3 264 / 0.7), 0 0 30px oklch(0.7 0.3 264 / 0.5), 0 0 45px oklch(0.7 0.3 264 / 0.3),
-      0 0 60px oklch(0.7 0.3 264 / 0.1);
-  }
-
-  .neon-glow-cyan-strong {
-    box-shadow: 0 0 15px oklch(0.8 0.35 264 / 0.7), 0 0 30px oklch(0.8 0.35 264 / 0.5), 0 0 45px
-      oklch(0.8 0.35 264 / 0.3), 0 0 60px oklch(0.8 0.35 264 / 0.1);
+  .glow-pink {
+    box-shadow: 0 0 8px oklch(0.65 0.18 320 / 0.3), 0 0 16px oklch(0.65 0.18 320 / 0.15);
   }
 
   /* Text Glows */
-  .text-neon-blue {
-    color: oklch(0.7 0.3 264);
-    text-shadow: 0 0 10px oklch(0.7 0.3 264 / 0.5), 0 0 20px oklch(0.7 0.3 264 / 0.3);
+  .text-glow-cyan {
+    color: oklch(0.68 0.2 180);
+    text-shadow: 0 0 8px oklch(0.68 0.2 180 / 0.4);
   }
 
-  .text-neon-cyan {
-    color: oklch(0.8 0.35 264);
-    text-shadow: 0 0 10px oklch(0.8 0.35 264 / 0.5), 0 0 20px oklch(0.8 0.35 264 / 0.3);
+  .text-glow-blue {
+    color: oklch(0.65 0.18 264);
+    text-shadow: 0 0 8px oklch(0.65 0.18 264 / 0.4);
   }
 
-  .text-neon-magenta {
-    color: oklch(0.6 0.25 264);
-    text-shadow: 0 0 10px oklch(0.6 0.25 264 / 0.5), 0 0 20px oklch(0.6 0.25 264 / 0.3);
+  .text-glow-purple {
+    color: oklch(0.62 0.16 300);
+    text-shadow: 0 0 8px oklch(0.62 0.16 300 / 0.4);
   }
 
-  /* Glass Morphism Effects */
-  .glass-neon {
-    background: oklch(0.06 0.02 264 / 0.7);
-    backdrop-filter: blur(16px);
-    border: 1px solid oklch(0.7 0.3 264 / 0.4);
-  }
-
-  .glass-neon-cyan {
-    background: oklch(0.06 0.02 264 / 0.6);
+  /* Glass Effect */
+  .glass-card {
+    background: oklch(0.12 0.02 264 / 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.8 0.35 264 / 0.3);
+    border: 1px solid oklch(0.2 0.04 264 / 0.5);
   }
 
-  /* Grid Patterns */
-  .grid-neon {
-    background-image: linear-gradient(oklch(0.7 0.3 264 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.7 0.3 264 / 0.08) 1px, transparent 1px);
-    background-size: 50px 50px;
+  /* Gradient Backgrounds */
+  .gradient-cyan-blue {
+    background: linear-gradient(135deg, oklch(0.68 0.2 180 / 0.2), oklch(0.65 0.18 264 / 0.2));
   }
 
-  .grid-neon-cyan {
-    background-image: linear-gradient(oklch(0.8 0.35 264 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.8 0.35 264 / 0.08) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Animated Neon Border */
-  .border-neon-animated {
-    position: relative;
-    border: 2px solid transparent;
-    background: linear-gradient(var(--background), var(--background)) padding-box,
-      linear-gradient(90deg, oklch(0.7 0.3 264), oklch(0.8 0.35 264), oklch(0.6 0.25 264), oklch(0.7 0.3 264))
-      border-box;
-    animation: neon-border-rotate 4s linear infinite;
-  }
-
-  @keyframes neon-border-rotate {
-    0% {
-      filter: hue-rotate(0deg);
-    }
-    100% {
-      filter: hue-rotate(360deg);
-    }
-  }
-
-  /* Cyberpunk Scanlines */
-  .scanlines {
-    position: relative;
-  }
-
-  .scanlines::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(transparent 50%, oklch(0.7 0.3 264 / 0.03) 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 1;
+  .gradient-purple-pink {
+    background: linear-gradient(135deg, oklch(0.62 0.16 300 / 0.2), oklch(0.65 0.18 320 / 0.2));
   }
 }

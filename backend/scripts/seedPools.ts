@@ -1,58 +1,71 @@
 import "dotenv/config";
-import db from "../server/db"; // tương đối với project
-import { sarosDLMM ,fetchPoolMetadata} from "../service/sarosService"; // điều chỉnh path nếu cần
+import { PublicKey } from "@solana/web3.js";
+import { dlmmClient } from "../service/client"; // ✅ đã setup DLMMClient
+import db from "../server/db"; // ✅ kết nối PostgreSQL (qua pg hoặc prisma)
+import { fetchPoolMetadata } from "../service/sarosService";
 
-function sleep(ms: number) {
-  return new Promise((res) => setTimeout(res, ms));
-}
+async function savePoolToDB(metadata: any) {
+  const {
+    poolAddress,
+    baseMint,
+    quoteMint,
+    baseReserve,
+    quoteReserve,
+    tradeFee,
+    extra
+  } = metadata;
 
-async function upsertPool(address: string, metadata: any) {
-  const sql =
-    `INSERT INTO pools (address, metadata, token_base, token_quote)
-     VALUES (?, ?, ?, ?)
-     ON DUPLICATE KEY UPDATE metadata = VALUES(metadata), updated_at = NOW()`;
-  const tokenBase = metadata?.baseMint ?? null;
-  const tokenQuote = metadata?.quoteMint ?? null;
-  const metaStr = metadata ? JSON.stringify(metadata) : null;
-  await db.execute(sql, [address, metaStr, tokenBase, tokenQuote]);
+  const tokenBaseDecimal = extra?.tokenBaseDecimal || 0;
+  const tokenQuoteDecimal = extra?.tokenQuoteDecimal || 0;
+
+  const query = `
+    INSERT INTO pools (
+      pool_address, token_base, token_quote, base_reserve, quote_reserve,
+      trade_fee, token_base_decimal, token_quote_decimal
+    )
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+    ON CONFLICT (pool_address)
+    DO UPDATE SET
+    token_base = EXCLUDED.token_base,
+    token_quote = EXCLUDED.token_quote,
+    base_reserve = EXCLUDED.base_reserve,
+    quote_reserve = EXCLUDED.quote_reserve,
+    trade_fee = EXCLUDED.trade_fee,
+    token_base_decimal = EXCLUDED.token_base_decimal,
+    token_quote_decimal = EXCLUDED.token_quote_decimal;
+  `;
+
+  await db.query(query, [
+    poolAddress,
+    baseMint,
+    quoteMint,
+    baseReserve,
+    quoteReserve,
+    tradeFee,
+    tokenBaseDecimal,
+    tokenQuoteDecimal
+  ]);
 }
 
 async function main() {
-  console.log("Fetching pool addresses from sarosDLMM...");
-  // SDK may return strings or PublicKey-like objects; accept either shape
-  const addresses = await sarosDLMM.fetchPoolAddresses() as Array<string | { toBase58: () => string }>;
+  console.log("🔍 Fetching all DLMM pools...");
+  const allPairs = await dlmmClient.getAllLbPairs();
 
-  console.log("Total pools:", addresses.length);
-  const BATCH = 8; // đồng thời 8 metadata requests
-  const DELAY_BETWEEN_BATCHES = 400; // ms
+  console.log(`✅ Found ${allPairs.length} pools. Fetching metadata...`);
 
-  for (let i = 0; i < addresses.length; i += BATCH) {
-    const batch = addresses.slice(i, i + BATCH);
-    await Promise.all(
-      batch.map(async (addr) => {
-        try {
-          const addrStr = typeof addr === "string" ? addr : addr.toBase58();
-          const metadata = await fetchPoolMetadata(addrStr);
-          await upsertPool(addrStr, metadata);
-          console.log("Saved pool", addrStr);
-        } catch (e: unknown) {
-          if (e instanceof Error) {
-            console.error("Failed fetch/insert for pool:", addr, e.message);
-          } else {
-            console.error("Failed fetch/insert for pool:", addr, e);
-          }
-        }
-      })
-    );
-    // chờ 1 chút để tránh rate-limit
-    await sleep(DELAY_BETWEEN_BATCHES);
+  for (const pair of allPairs) {
+    try {
+      const metadata = await fetchPoolMetadata(pair.poolAddress);
+      console.log("Pool metadata:", metadata);
+
+      await savePoolToDB(metadata);
+      console.log(`💾 Saved pool ${metadata.poolAddress}`);
+    } catch (err) {
+      console.error(`❌ Error saving pool ${pair.poolAddress}:`, err);
+    }
   }
 
-  console.log("Seeding pools finished.");
-  process.exit(0);
+  console.log("🎉 All pools saved successfully!");
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main().catch(console.error);

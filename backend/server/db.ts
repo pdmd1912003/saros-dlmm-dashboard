@@ -1,23 +1,15 @@
-import pkg from 'pg';
-import dotenv from 'dotenv';
+import { Pool } from "pg";
+import dotenv from "dotenv";
+
 dotenv.config();
 
-const { Pool } = pkg;
-
 const pool = new Pool({
-  host: process.env.PG_HOST,
-  port: process.env.PG_PORT,
-  user: process.env.PG_USER,
-  password: process.env.PG_PASSWORD,
-  database: process.env.PG_DATABASE,
+  host: process.env.PG_HOST || "127.0.0.1",
+  port: Number(process.env.PG_PORT) || 5432,
+  user: process.env.PG_USER || "postgres",
+  password: process.env.PG_PASSWORD || "admin",
+  database: process.env.PG_DATABASE || "saros_db",
+  max: 10,
 });
-
-// Test connection
-pool.connect()
-  .then(client => {
-    console.log("✅ Connected to PostgreSQL");
-    client.release();
-  })
-  .catch(err => console.error("❌ Connection error", err.stack));
 
 export default pool;

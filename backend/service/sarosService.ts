@@ -9,12 +9,13 @@ import {
 } from "@solana/web3.js";
 import { LiquidityBookServices, MODE } from "@saros-finance/dlmm-sdk";
 
+
 /**
  * Cấu hình RPC (ưu tiên .env)
  */
 const RPC =
-  process.env.NEXT_PUBLIC_RPC_URL ||
-  process.env.NEXT_PUBLIC_RPC ||
+  // process.env.NEXT_PUBLIC_RPC_URL ||
+  // process.env.NEXT_PUBLIC_RPC ||
   "https://api.devnet.solana.com";
 
 export const connection = new Connection(RPC, "confirmed" as Commitment);
@@ -69,23 +70,6 @@ export async function fetchPoolMetadata(poolAddress: string | PublicKey) {
     return await sarosDLMM.fetchPoolMetadata(addr);
   } catch (err) {
     console.error("fetchPoolMetadata error:", err);
-    throw err;
-  }
-}
-
-export async function fetchReserves(
-  position: string,
-  poolAddress: string,
-  wallet: string
-) {
-  try {
-    return await sarosDLMM.getBinsReserveInformation({
-      position: new PublicKey(position),
-      pair: new PublicKey(poolAddress),
-      payer: new PublicKey(wallet),
-    });
-  } catch (err) {
-    console.error("fetchReserves error:", err);
     throw err;
   }
 }
@@ -353,7 +337,6 @@ export default {
   sarosDLMM,
   fetchUserPositions,
   fetchPoolMetadata,
-  fetchReserves,
   quoteSwap,
   fetchAllPools,
   fetchPools,
@@ -361,3 +344,4 @@ export default {
   createPositionOnChainAlternative,
   sendTransaction,
 };
+
