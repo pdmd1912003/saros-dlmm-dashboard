@@ -1,1 +1,0 @@
-export { SarosFarmService } from './sarosFarmServices';
